@@ -1,0 +1,14 @@
+node_modules/
+
+# Test artifacts
+coverage/
+test-results/
+playwright-report/
+
+# Local databases generated during development
+database.db
+backend/database.db
+
+# Environment files
+.env
+.env.local

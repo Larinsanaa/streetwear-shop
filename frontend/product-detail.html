@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes do Produto - StreetWear Shop</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html" style="font-size: 20px; padding-left: 2rem;">
+        <img src="/img/logo.png" alt="StreetWear Shop Logo" style="height: 100px;">
+      </a>
+      <div class="d-flex align-items-center" style="padding-right: 2rem;">
+        <span class="text-light me-3" style="font-size: 20px;">
+          Carrinho: <span id="carrinhoCount" class="badge bg-danger">0</span>
+        </span>
+        <button class="btn btn-outline-light btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" style="font-size: 20px;">
+          <i class="bi bi-cart3"></i> Ver Carrinho
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- DETALHES DO PRODUTO -->
+  <section class="produto-detail py-3">
+    <div class="container">
+      <a href="index.html" class="btn btn-outline-dark btn-sm mb-4">
+        <i class="bi bi-arrow-left"></i> Voltar
+      </a>
+
+      <div class="row g-5">
+        <!-- Imagem -->
+        <div class="col-lg-6">
+          <img id="produtoImagem" src="" alt="Produto" class="img-fluid rounded" style="max-height: 500px; object-fit: cover;" onerror="this.src='/img/logo.png'">
+        </div>
+
+        <!-- Informações -->
+        <div class="col-lg-6">
+          <h2 id="produtoNome" class="mb-3"></h2>
+
+          <div class="mb-3">
+            <span class="badge bg-dark me-2" id="produtoCategoria"></span>
+          </div>
+
+          <h4 id="produtoPreco" class="mb-4" style="font-size: 2rem; color: #000;">R$ 0.00</h4>
+
+          <p id="produtoDescricao" class="text-muted fs-5 mb-4" style="line-height: 1.8;"></p>
+
+          <div class="mb-4">
+            <label for="quantidade" class="form-label">Quantidade:</label>
+            <input type="number" id="quantidade" class="form-control" style="max-width: 100px;" value="1" min="1">
+          </div>
+
+          <button class="btn btn-dark btn-lg w-100" onclick="adicionarAoCarrinhoDetalhes(this)">
+            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-light py-3 mt-3">
+    <div class="container text-center">
+      <p>&copy; 2024 StreetWear Shop. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- CARRINHO OFFCANVAS -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart">
+    <div class="offcanvas-header bg-dark text-light">
+      <h5 class="offcanvas-title">Meu Carrinho</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div id="carrinhoItems">
+        <p class="text-muted">Seu carrinho está vazio</p>
+      </div>
+      <div id="carrinhoTotal" class="mt-4" style="display: none;">
+        <hr>
+        <h5>Total: R$ <span id="totalPrice">0.00</span></h5>
+        <button class="btn btn-dark w-100 mt-3">Finalizar Compra</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/carrinho.js"></script>
+  <script src="js/product-detail.js"></script>
+</body>
+</html>
